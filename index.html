@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="no-referrer-when-downgrade">
+
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <script>
+    async function decodeResponse(credential) {
+
+    }
+    async function handleAuth(response) {
+      //const responsePayload = await decodeResponse(response.credential);
+      console.log('Response', response);
+
+    }
+  </script>
+  
+  <title>Consulting Ninja HTMLAUTH</title>
+  <!-- Additional CSS and JavaScript files can be linked here -->
+</head>
+<body>
+  <!-- Content of the web page goes here -->
+
+  <header>
+    <!-- Header content -->
+  </header>
+
+  <nav>
+    <!-- Navigation menu or links -->
+  </nav>
+
+  <main>
+    <h1>Welcome to Consulting Ninja!</h1>
+    <p>
+      Visit
+      <a href="https://www.youtube.com/@ConsultingNinja/featured">
+        <strong>@ConsultingNinja</strong>
+      </a>
+      to see more great videos!
+      <div id="g_id_onload"
+      data-client_id="889328097452-ians5l01ttaroil21p7tndgolvasgqa0.apps.googleusercontent.com"
+      data-context="signin"
+      data-ux_mode="popup"
+      data-callback="handleAuth"
+      data-auto_prompt="false">
+ </div>
+ 
+ <div class="g_id_signin"
+      data-type="standard"
+      data-shape="rectangular"
+      data-theme="outline"
+      data-text="signin_with"
+      data-size="large"
+      data-logo_alignment="left">
+ </div>
+    </p>
+    <!-- Main content of the page -->
+  </main>
+
+  <footer>
+    <!-- Footer content -->
+  </footer>
+
+  <!-- Additional scripts can be placed here -->
+</body>
+</html>
+
