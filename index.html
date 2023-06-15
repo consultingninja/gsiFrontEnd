@@ -8,13 +8,23 @@
   <script src="https://accounts.google.com/gsi/client" async defer></script>
   <script>
     async function decodeResponse(credential) {
-      
+      const url = new URL('http://127.0.0.1:3000/oauth');
+      url.searchParams.append('code',credential);
+      const localReq = await fetch(url);
+      const data = await localReq.json();
+      return data 
 
     }
     async function handleAuth(response) {
-      //const responsePayload = await decodeResponse(response.credential);
-      console.log('Response', response);
+      const responsePayload = await decodeResponse(response.credential);
+      console.log('responsePayload', responsePayload);
+      //console.log('Response', response);
+    }
 
+    async function getKeys(){
+      const keys = await fetch('http://127.0.0.1:3000/getkeys');
+      const data = await keys.json();
+      console.log('data',data);
     }
   </script>
   
@@ -26,6 +36,9 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+    }
+    button{
+      margin-top:.25em;
     }
   </style>
 </head>
@@ -40,7 +53,9 @@
     <!-- Navigation menu or links -->
   </nav>
 
+  
   <main>
+      <!-- Main content of the page -->
     <h1>Welcome to Consulting Ninja!</h1>
     <h3>Google GSI!?</h3>
     <p>
@@ -50,7 +65,7 @@
       </a>
       to see more great videos!
       <div id="g_id_onload"
-      data-client_id="889328097452-ians5l01ttaroil21p7tndgolvasgqa0.apps.googleusercontent.com"
+      data-client_id="889328097452-apc17iqi6rqghmvahr156kepoduhddro.apps.googleusercontent.com"
       data-context="signin"
       data-ux_mode="popup"
       data-callback="handleAuth"
@@ -65,8 +80,11 @@
       data-size="large"
       data-logo_alignment="left">
  </div>
+
+
+ <!-- <button type="button" onclick="getKeys()">My life sucks</button> -->
     </p>
-    <!-- Main content of the page -->
+
   </main>
 
   <footer>
